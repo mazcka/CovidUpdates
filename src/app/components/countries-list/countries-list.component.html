@@ -1,40 +1,27 @@
-<mat-form-field floatLabel=never class="search-area">
-    <input matInput class="search-input" type="text" placeholder="Search countries" [(ngModel)]="searchText">
+<mat-form-field class="search-area" appearance="fill">
+    <mat-label>Search countries</mat-label>
+    <input matInput type="text" [(ngModel)]="searchText" autofocus>
+    <button matSuffix mat-icon-button aria-label="Search" (click)="searchText=''">
+        <mat-icon>search</mat-icon>
+    </button>
 </mat-form-field>
 
 <ng-container *ngIf="countries$ | async as countries">
     <div class="country-list-container">
-        <div class="country-item" *ngFor="let item of countries | search: searchText">
-            <div class="country-header">
-                <span>
-                    {{ item.country }}
-                </span>
-            </div>
-            <div class="country-content-wrapper">
-                <div class="country-content-data">
-                    <div>
-                        <span>Last Update Time: </span>
-                        <span>{{ item.lastUpdate | date: 'dd/MM/YYYY' }}</span>
-                    </div>
-                    <div>
-                        <span>Deaths: </span>
-                        <span>{{ item.deaths }}</span>
-                    </div>
-                    <div>
-                        <span>Confirmed: </span>
-                        <span>{{ item.confirmed }}</span>
-                    </div>
-                    <div>
-                        <span>Recovered: </span>
-                        <span>{{ item.recovered }}</span>
-                    </div>
-                </div>
-                <div class="country-footer">
-                    <button>Add To Favorites</button>
-                    <button>Status By Date</button>
-                </div>
-            </div>
-        </div>
-
+        <mat-card class="country-item" *ngFor="let item of countries | search: searchText">
+            <mat-card-header>
+                <mat-card-title>{{ item.country }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-card-subtitle>Last Update Time: {{ item.lastUpdate | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
+                <mat-card-subtitle>Deaths: {{ item.deaths }}</mat-card-subtitle>
+                <mat-card-subtitle>Confirmed: {{ item.confirmed }}</mat-card-subtitle>
+                <mat-card-subtitle>Recovered: {{ item.recovered }}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button>Add To Favorites</button>
+                <button mat-raised-button>Status By Date</button>
+            </mat-card-actions>
+        </mat-card>
     </div>
 </ng-container>
