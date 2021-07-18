@@ -1,0 +1,18 @@
+:host {
+    display: block;
+    height: 100%;
+
+    .app-container {
+        display: grid;
+        grid-template-columns: minmax(150px, 1fr) 10fr;
+        height: 100%;
+    }
+
+    .navbar {
+        background-color: #e6e6e6;
+    }
+
+    .outlet {
+        background-color: #f2f2f2;
+    }
+}

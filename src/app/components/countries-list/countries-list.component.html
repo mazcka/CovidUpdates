@@ -1,0 +1,40 @@
+<mat-form-field floatLabel=never class="search-area">
+    <input matInput class="search-input" type="text" placeholder="Search countries" [(ngModel)]="searchText">
+</mat-form-field>
+
+<ng-container *ngIf="countries$ | async as countries">
+    <div class="country-list-container">
+        <div class="country-item" *ngFor="let item of countries | search: searchText">
+            <div class="country-header">
+                <span>
+                    {{ item.country }}
+                </span>
+            </div>
+            <div class="country-content-wrapper">
+                <div class="country-content-data">
+                    <div>
+                        <span>Last Update Time: </span>
+                        <span>{{ item.lastUpdate | date: 'dd/MM/YYYY' }}</span>
+                    </div>
+                    <div>
+                        <span>Deaths: </span>
+                        <span>{{ item.deaths }}</span>
+                    </div>
+                    <div>
+                        <span>Confirmed: </span>
+                        <span>{{ item.confirmed }}</span>
+                    </div>
+                    <div>
+                        <span>Recovered: </span>
+                        <span>{{ item.recovered }}</span>
+                    </div>
+                </div>
+                <div class="country-footer">
+                    <button>Add To Favorites</button>
+                    <button>Status By Date</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ng-container>

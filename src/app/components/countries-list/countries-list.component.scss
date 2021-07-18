@@ -1,0 +1,62 @@
+$border-color: gray;
+$border-radius: 10px;
+$header-background: #6e6e6e;
+
+:host {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+
+    .search-area {
+        display: flex;
+        place-self: center;
+        .search-input {
+            width: 50%;
+        }
+    }
+
+    .country-list-container {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        // align-items: center;
+    }
+
+    .country-item {
+        width: 250px;
+    }
+
+    .country-header {
+        display: flex;
+        background-color: $header-background;
+        justify-content: center;
+        border: 1px solid $border-color;
+        border-radius: $border-radius $border-radius 0 0;
+        padding: 5px;
+    }
+
+    .country-content-wrapper {
+        display: grid;
+        grid-template-rows: minmax(100px, 1fr) 30px;
+        justify-content: space-between;
+        border-right: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        border-left: 1px solid $border-color;
+        border-radius: 0 0 $border-radius $border-radius;
+        padding: 5px;
+
+        .country-content-data {
+            display: grid;
+            justify-items: stretch;
+            padding-bottom: 5px;
+        }
+
+        .country-footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
