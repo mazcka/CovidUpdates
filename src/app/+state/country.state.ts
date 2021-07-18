@@ -39,6 +39,30 @@ export const arr: Country[] = [{
     longitude: 19.503304,
     lastChange: new Date("2020-07-22T09:15:04+02:00"),
     lastUpdate: new Date("2020-07-22T20:15:03+02:00")
+},
+{
+    country: "Israel",
+    code: "IL",
+    confirmed: 55695,
+    recovered: 23205,
+    critical: 273,
+    deaths: 430,
+    latitude: 31.046051,
+    longitude: 34.851612,
+    lastChange: new Date("2020-07-22T18:39:12+02:00"),
+    lastUpdate: new Date("2020-07-22T20:15:03+02:00")
+},
+{
+    country: "Singapore",
+    code: "SG",
+    confirmed: 48744,
+    recovered: 44795,
+    critical: 0,
+    deaths: 27,
+    latitude: 1.352083,
+    longitude: 103.819836,
+    lastChange: new Date("2020-07-22T16:37:12+02:00"),
+    lastUpdate: new Date("2020-07-22T20:15:03+02:00")
 }
 ];
 
@@ -47,4 +71,3 @@ export const initialState: CountryState = {
     countries: arr
     // countries: []
 };
-
