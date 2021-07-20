@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Country } from './models/country';
 import { CountryService } from './services/country.service';
 import { CountryFacade } from 'src/app/+state/country.facade';
-import { ButtonItem, FormProperties } from './models/navigation.item';
+import { ButtonItem, FormProperties } from './models/form.properties';
 
 @Component({
   selector: 'app-root',
