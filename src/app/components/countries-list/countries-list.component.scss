@@ -7,9 +7,20 @@ $header-background: #6e6e6e;
     display: grid;
     grid-template-rows: 1fr 5fr;
 
-    .search-area {
-        place-self: center;
-        width: 50%;
+    .upper-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .section-header {
+            place-self: center;
+            font-size: 2em;
+        }
+
+        .search-area {
+            place-self: center;
+            width: 50%;
+        }
     }
 
     .country-list-container {

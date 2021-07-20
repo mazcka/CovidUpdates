@@ -1,7 +1,11 @@
-import { Country } from '../models/country';
+import { Country, CountryMetadata } from '../models/country';
+import { FormProperties } from '../models/form.properties';
 
 export interface CountryState {
-    countries: Country[];
+    countries: Country[],
+    favoritesCountries: Country[],
+    formProperties: FormProperties | null,
+    countriesList: CountryMetadata[]
 }
 
 export const arr: Country[] = [{
@@ -66,8 +70,10 @@ export const arr: Country[] = [{
 }
 ];
 
-
 export const initialState: CountryState = {
-    countries: arr
-    // countries: []
+    countries: arr,
+    // countries: [],
+    favoritesCountries: [],
+    formProperties: null,
+    countriesList: []
 };

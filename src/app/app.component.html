@@ -1,6 +1,17 @@
 <div class="app-container">
   <div class="navbar">
-    Nav Bar
+    <mat-sidenav mode="side" [opened]="true" class="sidenav-content">
+      <mat-nav-list>
+        <a mat-list-item class="nav-item" *ngFor="let nav of navigationItems; index as i" (click)="navigateTo(nav)">
+          <div>
+            <mat-icon>{{ nav.iconClass }}</mat-icon>
+          </div>
+          <div>
+            <span>{{ nav.displayName }}</span>
+          </div>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
   </div>
   <div class="outlet">
     <router-outlet></router-outlet>

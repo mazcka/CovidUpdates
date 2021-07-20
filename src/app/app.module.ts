@@ -10,9 +10,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { CountriesListComponent } from './components/countries-list/countries-list.component';
 import { CountryFacade } from './+state/country.facade';
-import { CovidCountryService } from './services/covid-country.service';
+import { CountryService } from './services/country.service';
 import { SearchPipe } from './pipes/search.pipe';
 import { MaterialModule } from './material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,12 @@ import { MaterialModule } from './material.module';
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({}),
     StoreModule.forFeature(COUNTRY_FEATURE_KEY, reducers),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
-  providers: [CountryFacade, CovidCountryService],
+  providers: [CountryFacade, CountryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

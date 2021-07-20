@@ -1,27 +1,34 @@
-<mat-form-field class="search-area" appearance="fill">
-    <mat-label>Search countries</mat-label>
-    <input matInput type="text" [(ngModel)]="searchText" autofocus>
-    <button matSuffix mat-icon-button aria-label="Search" (click)="searchText=''">
-        <mat-icon>search</mat-icon>
-    </button>
-</mat-form-field>
-
-<ng-container *ngIf="countries$ | async as countries">
-    <div class="country-list-container">
-        <mat-card class="country-item" *ngFor="let item of countries | search: searchText">
-            <mat-card-header>
-                <mat-card-title>{{ item.country }}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <mat-card-subtitle>Last Update Time: {{ item.lastUpdate | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
-                <mat-card-subtitle>Deaths: {{ item.deaths }}</mat-card-subtitle>
-                <mat-card-subtitle>Confirmed: {{ item.confirmed }}</mat-card-subtitle>
-                <mat-card-subtitle>Recovered: {{ item.recovered }}</mat-card-subtitle>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-raised-button>Add To Favorites</button>
-                <button mat-raised-button>Status By Date</button>
-            </mat-card-actions>
-        </mat-card>
+<ng-container *ngIf="(formProperties$ | async) as formProperties">
+    <div class="upper-section">
+        <div class="section-header">{{ formProperties.displayName }}</div>
+        <mat-form-field class="search-area" appearance="fill">
+            <mat-label>Search countries</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText" autofocus>
+            <button matSuffix mat-icon-button aria-label="Search" (click)="searchText=''">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
     </div>
+
+    <ng-container *ngIf="countries$ | async as countries">
+        <div class="country-list-container">
+            <mat-card class="country-item" *ngFor="let item of countries | search: searchText">
+                <mat-card-header>
+                    <mat-card-title>{{ item.country }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-card-subtitle>Last Update Time: {{ item.lastUpdate | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
+                    <mat-card-subtitle>Deaths: {{ item.deaths }}</mat-card-subtitle>
+                    <mat-card-subtitle>Confirmed: {{ item.confirmed }}</mat-card-subtitle>
+                    <mat-card-subtitle>Recovered: {{ item.recovered }}</mat-card-subtitle>
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-raised-button *ngFor="let button of formProperties.buttons"
+                        (click)="button.callback(item)">{{ button.title }}</button>
+                </mat-card-actions>
+
+            </mat-card>
+        </div>
+    </ng-container>
 </ng-container>

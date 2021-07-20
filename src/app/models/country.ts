@@ -26,3 +26,11 @@ export interface ProvinceData {
     deaths: number;
     active: number;
 }
+
+export interface CountryMetadata {
+    name: string;
+    alpha2code: string;
+    alpha3code: string;
+    latitude: number;
+    longitude: number;
+}
