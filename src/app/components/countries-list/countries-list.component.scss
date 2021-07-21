@@ -28,13 +28,14 @@ $header-background: #6e6e6e;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: flex-start;
+        padding: 0 5px;
     }
 
     .country-item {
         width: 300px;
         max-width: 300px;
 
-        margin: 5px 0;
+        margin: 5px;
     }
 }

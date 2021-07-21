@@ -1,4 +1,5 @@
 export interface FormProperties {
+    formId: string;
     routeLink: string;
     displayName: string;
     iconClass: string;
