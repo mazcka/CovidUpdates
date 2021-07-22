@@ -57,6 +57,18 @@ export const arr: Country[] = [{
     lastUpdate: new Date("2020-07-22T20:15:03+02:00")
 },
 {
+    country: "Italy",
+    code: "IT",
+    confirmed: 245032,
+    recovered: 197628,
+    critical: 48,
+    deaths: 35082,
+    latitude: 41.87194,
+    longitude: 12.56738,
+    lastChange: new Date("2020-07-22T17:31:25+02:00"),
+    lastUpdate: new Date("2020-07-22T20:15:03+02:00"),
+},
+{
     country: "Singapore",
     code: "SG",
     confirmed: 48744,

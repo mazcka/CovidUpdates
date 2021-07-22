@@ -17,6 +17,17 @@ export const getFormProperties = createSelector(
     (state: CountryState) => state.formProperties
 );
 
+export const getCountriesMeatadata = createSelector(
+    selectCountryState,
+    (state: CountryState) => state.countriesList
+);
+
+export const getCountryMeatadataById = (alpha2code: string) => createSelector(
+    selectCountryState,
+    getCountriesMeatadata,
+    (state: CountryState) => state.countriesList.find(c => c.alpha2code == alpha2code)
+);
+
 export const getFavoritesCountries = createSelector(
     selectCountryState,
     (state: CountryState) => state.favoritesCountries

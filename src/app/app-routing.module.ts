@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CountriesListComponent } from './components/countries-list/countries-list.component';
+import { CoutryDetailsComponent } from './components/coutry-details/coutry-details.component';
 
 const routes: Routes = [
+  { path: 'details/:countryCode', component: CoutryDetailsComponent },
   { path: 'home', component: CountriesListComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

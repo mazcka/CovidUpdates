@@ -53,6 +53,6 @@ export class AppComponent {
   }
 
   getStatusByDate(country: Country): void {
-    // this.countryFacade.addCountryToFavorites(country);
+    this.route.navigate(['details/' + country.code]);
   }
 }

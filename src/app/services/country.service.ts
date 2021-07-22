@@ -36,16 +36,16 @@ export class CountryService {
     }, this.requestTimer * 1);
 
     setTimeout(() => {
-      this.getListOfCountries().subscribe(countries => {
-        console.log(countries);
-        // this.store.dispatch(CountryActions.loadCountries(country));
+      this.getListOfCountries().subscribe(countriesList => {
+        console.log(countriesList);
+        this.store.dispatch(CountryActions.setCountriesMatadata(countriesList));
       });
     }, this.requestTimer * 2);
   }
 
-  getDailyReportByCountryCode(countryCode: string, dateQuery: string): Observable<CountryReport> {
-    const apiUrl = `${environment.baseApiUrl}/report/country/code?code=${countryCode}&date=${dateQuery}`;
-    return this.httpClient.get<CountryReport>(apiUrl, this.rapidHeader);
+  getDailyReportByCountryCode(countryCode: string, dateQuery: string): Observable<CountryReport[]> {
+    const apiUrl = `${environment.baseApiUrl}/report/country/code?code=${countryCode.toLocaleLowerCase()}&date=${dateQuery}`;
+    return this.httpClient.get<CountryReport[]>(apiUrl, this.rapidHeader);
   }
 
   getLatestCountryDataByCode(countryCode: string): Observable<Country> {

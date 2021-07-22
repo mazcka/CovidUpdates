@@ -1,5 +1,5 @@
 import { createAction } from '@ngrx/store';
-import { Country } from '../models/country';
+import { Country, CountryMetadata } from '../models/country';
 import { FormProperties } from '../models/form.properties';
 
 export const addFavoriteCountry = createAction(
@@ -10,6 +10,11 @@ export const addFavoriteCountry = createAction(
 export const loadCountries = createAction(
     '[Country] Load Countries',
     (countries: Country[]) => ({ countries })
+);
+
+export const setCountriesMatadata = createAction(
+    '[Country] Set Countries Matadata',
+    (countriesList: CountryMetadata[]) => ({ countriesList })
 );
 
 export const setFormProperties = createAction(

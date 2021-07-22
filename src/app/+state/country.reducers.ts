@@ -13,6 +13,12 @@ export const countryReducer = createReducer(
       ...state,
       favoritesCountries: [...state.favoritesCountries, country]
     })),
+  on(CovidActions.setCountriesMatadata,
+    (state: CountryState, { countriesList }) =>
+    ({
+      ...state,
+      countriesList: countriesList
+    })),
   on(CovidActions.setFormProperties,
     (state: CountryState, { formProperties }) =>
     ({
