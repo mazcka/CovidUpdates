@@ -21,12 +21,4 @@ export class CountriesListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  addToFavorites(country: Country): void {
-    this.countryFacade.addCountryToFavorites(country);
-  }
-
-  getStatusByDate(country: Country): void {
-    // this.countryFacade.addCountryToFavorites(country);
-  }
 }
