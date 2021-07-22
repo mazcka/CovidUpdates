@@ -14,7 +14,6 @@ import { CountryService } from './services/country.service';
 import { SearchPipe } from './pipes/search.pipe';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { MyHttpInterceptor } from './services/http.interceptor';
 import { CoutryDetailsComponent } from './components/coutry-details/coutry-details.component';
 import { DatePipe } from '@angular/common';
 
