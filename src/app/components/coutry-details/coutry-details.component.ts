@@ -22,6 +22,8 @@ export class CoutryDetailsComponent implements OnInit, OnDestroy {
   countryMetadata: CountryMetadata | null;
 
   subscriptions: Subscription[] = [];
+  minDate: Date | null = null;
+  maxDate: Date | null = null;
 
   constructor(private countryService: CountryService,
     private countryFacade: CountryFacade,
@@ -32,6 +34,9 @@ export class CoutryDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.minDate = new Date(2020, 0, 1);
+    this.maxDate = new Date(Date.now());
+
     const routeParams = this.activatedRoute.snapshot.paramMap;
     const countryCodeFromRoute = routeParams.get('countryCode');
     this.countryCode = countryCodeFromRoute ? countryCodeFromRoute : '';

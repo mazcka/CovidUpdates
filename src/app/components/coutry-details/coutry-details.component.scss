@@ -1,0 +1,68 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .details-wrapper {
+        display: grid;
+        grid-template-rows: 110px 1fr;
+
+        height: 350px;
+        width: 400px;
+    }
+
+    .details-header {
+        display: grid;
+        grid-template-rows: 35px 1fr;
+
+        .details-date-picker {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .details-date-picker,
+        span {
+            place-self: center;
+        }
+    }
+
+    .country-details-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .details-row {
+            width: 70%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid gray;
+        }
+    }
+
+    ::ng-deep {
+        .mat-card-header-text,
+        .mat-card-subtitle {
+            width: 100%;
+        }
+        .mat-card-subtitle {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    h2 {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        margin: 0;
+        color: gray;
+    }
+}
