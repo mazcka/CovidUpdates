@@ -17,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyHttpInterceptor } from './services/http.interceptor';
 import { CoutryDetailsComponent } from './components/coutry-details/coutry-details.component';
 import { DatePipe } from '@angular/common';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -41,8 +40,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
   providers: [
     CountryFacade,
     CountryService,
-    DatePipe,
-    { provide: MAT_DATE_LOCALE, useValue: 'he-IL' }
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

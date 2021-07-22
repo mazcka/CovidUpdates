@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { ActivatedRoute } from '@angular/router';
-import { filter, take, takeUntil } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { CountryMetadata, CountryReport } from 'src/app/models/country';
 import { CountryService } from 'src/app/services/country.service';
 import { DatePipe } from '@angular/common';
@@ -29,14 +29,15 @@ export class CoutryDetailsComponent implements OnInit, OnDestroy {
     private countryFacade: CountryFacade,
     private datePipe: DatePipe,
     private activatedRoute: ActivatedRoute) {
+
     this.countryDetails = null;
     this.countryMetadata = null;
+
+    this.minDate = new Date(2020, 0, 1);
+    this.maxDate = new Date(Date.now());
   }
 
   ngOnInit(): void {
-    this.minDate = new Date(2020, 0, 1);
-    this.maxDate = new Date(Date.now());
-
     const routeParams = this.activatedRoute.snapshot.paramMap;
     const countryCodeFromRoute = routeParams.get('countryCode');
     this.countryCode = countryCodeFromRoute ? countryCodeFromRoute : '';

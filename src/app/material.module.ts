@@ -42,8 +42,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'he-IL' }],
   exports: [
     A11yModule,
     ClipboardModule,

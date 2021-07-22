@@ -4,8 +4,8 @@ import { CountriesListComponent } from './components/countries-list/countries-li
 import { CoutryDetailsComponent } from './components/coutry-details/coutry-details.component';
 
 const routes: Routes = [
-  { path: 'details/:countryCode', component: CoutryDetailsComponent },
   { path: 'home', component: CountriesListComponent },
+  { path: 'details/:countryCode', component: CoutryDetailsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
