@@ -16,6 +16,8 @@ import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CoutryDetailsComponent } from './components/coutry-details/coutry-details.component';
 import { DatePipe } from '@angular/common';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryCountryService } from './mock/in-memory-country.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { DatePipe } from '@angular/common';
     HttpClientModule,
     StoreModule.forRoot({}),
     StoreModule.forFeature(COUNTRY_FEATURE_KEY, reducers),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryCountryService)
   ],
   providers: [
     CountryFacade,

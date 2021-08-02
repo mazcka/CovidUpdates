@@ -20,27 +20,10 @@ export class CountryService {
     }
   };
 
-  constructor(private httpClient: HttpClient,
-    private store: Store<CountryState>) {
-    this.getDailyReportByCountryCode('it', '2020-04-01').subscribe(country => {
-      console.log(country);
-      // this.store.dispatch(CountryActions.loadCountries(country));
-    });
-
-    // Use timeout because RapidAPI doesn't support a lot of request in second
-    setTimeout(() => {
-      this.getLatestCountryDataByCode('it').subscribe(country => {
-        console.log(country);
-        // this.store.dispatch(CountryActions.loadCountries(country));
-      });
-    }, this.requestTimer * 1);
-
-    setTimeout(() => {
-      this.getListOfCountries().subscribe(countriesList => {
-        console.log(countriesList);
-        this.store.dispatch(CountryActions.setCountriesMatadata(countriesList));
-      });
-    }, this.requestTimer * 2);
+  constructor(
+    private httpClient: HttpClient,
+    private store: Store<CountryState>
+  ) {
   }
 
   getDailyReportByCountryCode(countryCode: string, dateQuery: string): Observable<CountryReport[]> {
