@@ -2,7 +2,6 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { Country } from '../models/country';
 import * as fromReducer from './country.reducers';
 import { CountryState } from './country.state';
-import { filter, orderBy, take } from 'lodash';
 
 export const selectCountryState = createFeatureSelector<CountryState>(
     fromReducer.COUNTRY_FEATURE_KEY

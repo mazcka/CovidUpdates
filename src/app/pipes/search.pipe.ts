@@ -8,7 +8,7 @@ import { Country } from '../models/country';
 export class SearchPipe implements PipeTransform {
 
   transform(items: Country[], searchText: string): Country[] {
-    // console.log(searchText);
+
     if (!items) {
       return [];
     }
