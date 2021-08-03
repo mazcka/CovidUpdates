@@ -1,36 +1,40 @@
+
 export interface Country {
+    continent: string;
     country: string;
-    code: string;
-    confirmed: number;
-    recovered: number;
-    critical: number;
-    deaths: number;
-    latitude: number;
-    longitude: number;
-    lastChange: Date;
-    lastUpdate: Date;
+    population: number;
+    cases: Cases;
+    deaths: Deaths;
+    tests: Tests;
+    day: string;
+    time: Date;
 }
 
-export interface CountryReport {
-    country: string;
-    provinces: ProvinceData[];
-    latitude: number;
-    longitude: number;
-    date: Date;
-}
-
-export interface ProvinceData {
-    province: string;
-    confirmed: number;
-    recovered: number;
-    deaths: number;
+export interface Cases {
+    new: string;
     active: number;
+    critical: number;
+    recovered: number;
+    total: number;
+}
+
+export interface Deaths {
+    new: string;
+    total: number;
+}
+
+export interface Tests {
+    total: number;
 }
 
 export interface CountryMetadata {
     name: string;
-    alpha2code: string;
-    alpha3code: string;
-    latitude: number;
-    longitude: number;
+}
+
+export interface GeneralResponse<T> {
+    get: string;
+    parameters: any[];
+    errors: string[];
+    results: number;
+    response: T;
 }

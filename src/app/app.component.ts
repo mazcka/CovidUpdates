@@ -19,8 +19,21 @@ export class AppComponent {
   favoritesButtons: ButtonItem[] = [
     { title: 'Status By Date', callback: this.getStatusByDate.bind(this) }];
 
-  popularFormProperties: FormProperties = { formId: 'popular', routeLink: '.', displayName: 'Popular', iconClass: 'info', buttons: this.popularButtons };
-  favoritesFormProperties: FormProperties = { formId: 'favorites', routeLink: '.', displayName: 'Favorites', iconClass: 'star', buttons: this.favoritesButtons };
+  popularFormProperties: FormProperties = {
+    formId: 'popular',
+    routeLink: '.',
+    displayName: 'Popular',
+    iconClass: 'info',
+    buttons: this.popularButtons
+  };
+
+  favoritesFormProperties: FormProperties = {
+    formId: 'favorites',
+    routeLink: '.',
+    displayName: 'Favorites',
+    iconClass: 'star',
+    buttons: this.favoritesButtons
+  };
 
   navigationItems: FormProperties[] = [
     this.popularFormProperties,
@@ -35,14 +48,12 @@ export class AppComponent {
   navigateTo(item: FormProperties): void {
     switch (item.formId) {
       case 'popular':
+        this.countryFacade.setCurrentCountries(this.countryFacade.popularCountries$);
         this.countryFacade.setFormProperties(this.popularFormProperties);
-        // pass this.popularButtons
-        // set popular countries to state
         break;
       case 'favorites':
+        this.countryFacade.setCurrentCountries(this.countryFacade.favoritesCountries$);
         this.countryFacade.setFormProperties(this.favoritesFormProperties);
-        // pass this.favoritesButtons
-        // set favorite countries to state
         break;
     }
     this.route.navigate([item.routeLink]);
@@ -53,6 +64,6 @@ export class AppComponent {
   }
 
   getStatusByDate(country: Country): void {
-    this.route.navigate(['details/' + country.code]);
+    this.route.navigate(['details/' + country.country]);
   }
 }

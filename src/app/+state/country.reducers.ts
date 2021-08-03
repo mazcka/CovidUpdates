@@ -7,6 +7,18 @@ export const COUNTRY_FEATURE_KEY = 'CovidCountry';
 
 export const countryReducer = createReducer(
   initialState,
+  on(CovidActions.setCurrentCountries,
+    (state: CountryState, { countries }) =>
+    ({
+      ...state,
+      currentCountries: countries
+    })),
+  on(CovidActions.setPopularCountries,
+    (state: CountryState, { countries }) =>
+    ({
+      ...state,
+      popularCountries: countries
+    })),
   on(CovidActions.addFavoriteCountry,
     (state: CountryState, { country }) =>
     ({
@@ -17,13 +29,13 @@ export const countryReducer = createReducer(
     (state: CountryState, { countriesList }) =>
     ({
       ...state,
-      countriesList: countriesList
+      countriesList
     })),
   on(CovidActions.setFormProperties,
     (state: CountryState, { formProperties }) =>
     ({
       ...state,
-      formProperties: formProperties
+      formProperties
     }))
 );
 

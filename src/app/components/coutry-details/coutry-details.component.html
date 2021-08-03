@@ -1,4 +1,4 @@
-<ng-container *ngIf="countryCode">
+<ng-container *ngIf="countryName">
     <mat-card>
         <div class="details-wrapper">
             <mat-card-header>
@@ -24,19 +24,19 @@
                     <mat-card-subtitle>
                         <div class="details-row">
                             <h2>Deaths:</h2>
-                            <h2>{{ countryDetails.provinces[0].deaths }}</h2>
+                            <h2>{{ countryDetails.deaths.total }}</h2>
                         </div>
                     </mat-card-subtitle>
                     <mat-card-subtitle>
                         <div class="details-row">
-                            <h2>Confirmed:</h2>
-                            <h2>{{ countryDetails.provinces[0].confirmed }}</h2>
+                            <h2>Active:</h2>
+                            <h2>{{ countryDetails.cases.active }}</h2>
                         </div>
                     </mat-card-subtitle>
                     <mat-card-subtitle>
                         <div class="details-row">
                             <h2>Recovered:</h2>
-                            <h2>{{ countryDetails.provinces[0].recovered }}</h2>
+                            <h2>{{ countryDetails.cases.recovered }}</h2>
                         </div>
                     </mat-card-subtitle>
                 </div>

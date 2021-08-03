@@ -5,7 +5,7 @@ import { CoutryDetailsComponent } from './components/coutry-details/coutry-detai
 
 const routes: Routes = [
   { path: 'home', component: CountriesListComponent },
-  { path: 'details/:countryCode', component: CoutryDetailsComponent },
+  { path: 'details/:countryName', component: CoutryDetailsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

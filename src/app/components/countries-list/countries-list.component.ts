@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryFacade } from 'src/app/+state/country.facade';
-import { Country } from 'src/app/models/country';
-import { FormProperties } from 'src/app/models/form.properties';
-
 
 @Component({
   selector: 'app-countries-list',
@@ -11,7 +8,7 @@ import { FormProperties } from 'src/app/models/form.properties';
 })
 export class CountriesListComponent implements OnInit {
 
-  countries$ = this.countryFacade.countries$;
+  countries$ = this.countryFacade.currentCountries$;
   formProperties$ = this.countryFacade.formProperties$;
 
   searchText = '';

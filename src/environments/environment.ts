@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseApiUrl: 'https://covid-19-data.p.rapidapi.com'
+  baseApiUrl: 'https://covid-193.p.rapidapi.com'
 };
 
 /*

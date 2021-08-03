@@ -12,16 +12,17 @@
     </div>
 
     <ng-container *ngIf="countries$ | async as countries">
-        <div class="country-list-container">
+        <div class="country-list-container" *ngIf="countries.length > 0 else no_data">
             <mat-card class="country-item" *ngFor="let item of countries | search: searchText">
                 <mat-card-header>
                     <mat-card-title>{{ item.country }}</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <mat-card-subtitle>Last Update Time: {{ item.lastUpdate | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
-                    <mat-card-subtitle>Deaths: {{ item.deaths }}</mat-card-subtitle>
-                    <mat-card-subtitle>Confirmed: {{ item.confirmed }}</mat-card-subtitle>
-                    <mat-card-subtitle>Recovered: {{ item.recovered }}</mat-card-subtitle>
+                    <mat-card-subtitle>Last Update Time: {{ item.day | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
+                    <mat-card-subtitle>Deaths: {{ item.deaths.total }}</mat-card-subtitle>
+                    <mat-card-subtitle>Active: {{ item.cases.active }}</mat-card-subtitle>
+                    <mat-card-subtitle>Recovered: {{ item.cases.recovered }}</mat-card-subtitle>
+                    <mat-card-subtitle>Tests: {{ item.tests.total }}</mat-card-subtitle>
                 </mat-card-content>
 
                 <mat-card-actions>
@@ -33,3 +34,9 @@
         </div>
     </ng-container>
 </ng-container>
+
+<ng-template #no_data>
+    <h2>
+        No countries in list
+    </h2>
+</ng-template>

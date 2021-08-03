@@ -7,8 +7,13 @@ export const addFavoriteCountry = createAction(
     (country: Country) => ({ country })
 );
 
-export const loadCountries = createAction(
-    '[Country] Load Countries',
+export const setPopularCountries = createAction(
+    '[Country] Set Popular Countries',
+    (countries: Country[]) => ({ countries })
+);
+
+export const setCurrentCountries = createAction(
+    '[Country] Set Current Countries',
     (countries: Country[]) => ({ countries })
 );
 
