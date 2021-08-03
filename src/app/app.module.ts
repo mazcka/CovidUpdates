@@ -13,9 +13,10 @@ import { CountryFacade } from './+state/country.facade';
 import { CountryService } from './services/country.service';
 import { SearchPipe } from './pipes/search.pipe';
 import { MaterialModule } from './material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoutryDetailsComponent } from './components/coutry-details/coutry-details.component';
 import { DatePipe } from '@angular/common';
+import { MyInterceptor } from './services/my-interceptor';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DatePipe } from '@angular/common';
   providers: [
     CountryFacade,
     CountryService,
-    DatePipe
+    DatePipe,
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

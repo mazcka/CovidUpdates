@@ -1,26 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CountryState } from '../+state/country.state';
 import { Country, CountryMetadata, GeneralResponse } from '../models/country';
 import * as CountryActions from '../+state/country.actions';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
 import { filter, orderBy, take } from 'lodash';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountryService {
-
-  requestTimer = 1500;
-  rapidHeader = {
-    headers: {
-      "x-rapidapi-key": "ea7051fcbemsh5279dea71af4e85p17560djsn2fdc9a17bb87",
-      "x-rapidapi-host": "covid-193.p.rapidapi.com"
-    }
-  };
 
   constructor(
     private httpClient: HttpClient,
@@ -54,16 +45,16 @@ export class CountryService {
 
   getAllCountriesData(): Observable<GeneralResponse<Country[]>> {
     const apiUrl = `${environment.baseApiUrl}/statistics`;
-    return this.httpClient.get<any>(apiUrl, this.rapidHeader);
+    return this.httpClient.get<any>(apiUrl);
   }
 
   getCountryDataByDate(countryName: string, dateQuery: string): Observable<GeneralResponse<Country[]>> {
     const apiUrl = `${environment.baseApiUrl}/history?country=${countryName.toLocaleLowerCase()}&day=${dateQuery}`;
-    return this.httpClient.get<any>(apiUrl, this.rapidHeader);
+    return this.httpClient.get<any>(apiUrl);
   }
 
   getListOfCountries(): Observable<GeneralResponse<CountryMetadata[]>> {
     const apiUrl = `${environment.baseApiUrl}/countries`;
-    return this.httpClient.get<any>(apiUrl, this.rapidHeader);
+    return this.httpClient.get<any>(apiUrl);
   }
 }

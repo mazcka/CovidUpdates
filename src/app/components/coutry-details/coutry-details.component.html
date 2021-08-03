@@ -24,19 +24,19 @@
                     <mat-card-subtitle>
                         <div class="details-row">
                             <h2>Deaths:</h2>
-                            <h2>{{ countryDetails.deaths.total }}</h2>
+                            <h2>{{ countryDetails.deaths.total | number }}</h2>
                         </div>
                     </mat-card-subtitle>
                     <mat-card-subtitle>
                         <div class="details-row">
                             <h2>Active:</h2>
-                            <h2>{{ countryDetails.cases.active }}</h2>
+                            <h2>{{ countryDetails.cases.active | number }}</h2>
                         </div>
                     </mat-card-subtitle>
                     <mat-card-subtitle>
                         <div class="details-row">
                             <h2>Recovered:</h2>
-                            <h2>{{ countryDetails.cases.recovered }}</h2>
+                            <h2>{{ countryDetails.cases.recovered | number }}</h2>
                         </div>
                     </mat-card-subtitle>
                 </div>

@@ -19,10 +19,10 @@
                 </mat-card-header>
                 <mat-card-content>
                     <mat-card-subtitle>Last Update Time: {{ item.day | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
-                    <mat-card-subtitle>Deaths: {{ item.deaths.total }}</mat-card-subtitle>
-                    <mat-card-subtitle>Active: {{ item.cases.active }}</mat-card-subtitle>
-                    <mat-card-subtitle>Recovered: {{ item.cases.recovered }}</mat-card-subtitle>
-                    <mat-card-subtitle>Tests: {{ item.tests.total }}</mat-card-subtitle>
+                    <mat-card-subtitle>Deaths: {{ item.deaths.total | number }}</mat-card-subtitle>
+                    <mat-card-subtitle>Active: {{ item.cases.active | number }}</mat-card-subtitle>
+                    <mat-card-subtitle>Recovered: {{ item.cases.recovered | number }}</mat-card-subtitle>
+                    <mat-card-subtitle>Tests: {{ item.tests.total | number }}</mat-card-subtitle>
                 </mat-card-content>
 
                 <mat-card-actions>
